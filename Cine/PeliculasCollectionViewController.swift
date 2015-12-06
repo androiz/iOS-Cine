@@ -11,6 +11,8 @@ import UIKit
 private let reuseIdentifier = "Cell"
 
 class PeliculasCollectionViewController: UICollectionViewController {
+    
+    var dataJSON: NSArray = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,10 +22,28 @@ class PeliculasCollectionViewController: UICollectionViewController {
 
         // Register cell classes
         self.collectionView!.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-
-        // Do any additional setup after loading the view.
+        
+        let urlString = "https://demo4791082.mockable.io/peliculas"
+        let session = NSURLSession.sharedSession()
+        let url = NSURL(string: urlString)
+        
+        
+        let task = session.dataTaskWithURL(url!) {
+            (data:NSData?, response:NSURLResponse?, error:NSError?) in
+            
+            do {
+                self.dataJSON = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as! NSArray
+                dispatch_async(dispatch_get_main_queue()) {
+                    self.collectionView!.reloadData()
+                }
+            } catch let caught as NSError {
+                print("error")
+            }
+        }
+        
+        task.resume()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -54,7 +74,7 @@ class PeliculasCollectionViewController: UICollectionViewController {
             {
                 func display_image()
                 {
-                    cell.image = UIImage(data: data!)
+                    cell.imagen?.image = UIImage(data: data!)
                 }
                 
                 dispatch_async(dispatch_get_main_queue(), display_image)
@@ -73,19 +93,32 @@ class PeliculasCollectionViewController: UICollectionViewController {
 
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 10
+        return self.dataJSON.count
     }
 
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let reuseIdentifier = "PeliculaCollectionViewCell"
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! PeliculaCollectionViewCell
-    
-        // Configure the cell
         
-        cell.nombre?.text = "Hola"
+        if(dataJSON.count != 0){
+            cell.nombre?.text = self.dataJSON[indexPath.row]["title"] as? String
+            let urlPath = self.dataJSON[indexPath.row]["url"] as! String
+            let url = NSURL(string: urlPath )
+            let data = NSData(contentsOfURL: url!)
+            let img = UIImage(data: data!)
+            cell.imagen?.image = img
+        }else{
+            cell.nombre?.text = "asdasd"
+            let url = NSURL(string: "http://img.desmotivaciones.es/201303/dfgjggjhkjl.jpg" )
+            let data = NSData(contentsOfURL: url!)
+            let img = UIImage(data: data!)
+            cell.imagen?.image = img
+        }
     
         return cell
     }
+    
+    
 
     // MARK: UICollectionViewDelegate
 

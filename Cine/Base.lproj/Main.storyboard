@@ -1,42 +1,27 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="gIv-Zf-xvJ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="CNW-Ed-g6P">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
     </dependencies>
     <scenes>
-        <!--Localidad-->
-        <scene sceneID="tne-QT-ifu">
-            <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Cine" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Localidad" id="f6P-ij-mfG"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="364" y="1105"/>
-        </scene>
         <!--Navigation Controller-->
-        <scene sceneID="8n7-1E-6nl">
+        <scene sceneID="BdR-yK-o2n">
             <objects>
-                <navigationController id="K1Z-5L-5mc" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="HHs-rW-d3k">
+                <navigationController id="CNW-Ed-g6P" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="UKJ-E4-5Lz">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="28z-ys-FxA" kind="relationship" relationship="rootViewController" id="c3z-af-KcU"/>
+                        <segue destination="gIv-Zf-xvJ" kind="relationship" relationship="rootViewController" id="prp-Ww-2Dh"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9GU-OK-xZQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5sT-R6-j7Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-676" y="1105"/>
+            <point key="canvasLocation" x="-1295" y="1747"/>
         </scene>
-        <!--Peliculas Collection View Controller-->
+        <!--Peliculas-->
         <scene sceneID="i5R-x9-Hf7">
             <objects>
                 <collectionViewController id="gIv-Zf-xvJ" customClass="PeliculasCollectionViewController" customModule="Cine" customModuleProvider="target" sceneMemberID="viewController">
@@ -45,88 +30,68 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="SbI-Xk-Z6S">
-                            <size key="itemSize" width="124" height="145"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="itemSize" width="122" height="153"/>
+                            <size key="headerReferenceSize" width="0.0" height="40"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PeliculaCollectionViewCell" id="M43-4M-LJY" customClass="PeliculaCollectionViewCell" customModule="Cine" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="124" height="145"/>
+                                <rect key="frame" x="0.0" y="104" width="122" height="153"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="124" height="145"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="122" height="153"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="0fo-Bc-OGx">
-                                            <rect key="frame" x="8" y="8" width="108" height="109"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="21C-1B-7m9">
+                                            <rect key="frame" x="7" y="8" width="108" height="108"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dCq-9j-IK0">
-                                            <rect key="frame" x="41" y="124" width="42" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dCq-9j-IK0">
+                                            <rect key="frame" x="2" y="116" width="120" height="37"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <connections>
+                                    <outlet property="imagen" destination="21C-1B-7m9" id="pot-Zz-GUd"/>
                                     <outlet property="nombre" destination="dCq-9j-IK0" id="w0L-pB-jth"/>
+                                    <segue destination="F9K-fW-t5o" kind="push" id="oXe-N2-YGx"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
+                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="NEV-ld-eER">
+                            <rect key="frame" x="0.0" y="64" width="320" height="40"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </collectionReusableView>
                         <connections>
                             <outlet property="dataSource" destination="gIv-Zf-xvJ" id="3FV-cs-ivU"/>
                             <outlet property="delegate" destination="gIv-Zf-xvJ" id="k2I-gm-osT"/>
                         </connections>
                     </collectionView>
+                    <navigationItem key="navigationItem" title="Peliculas" id="sIB-kr-7jV"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iJ5-j3-ydY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-677" y="1760"/>
+            <point key="canvasLocation" x="-813" y="1747"/>
         </scene>
-        <!--Ciudad-->
-        <scene sceneID="Ofk-wl-Ml4">
+        <!--Pelicula-->
+        <scene sceneID="UIf-Nv-mgV">
             <objects>
-                <tableViewController id="28z-ys-FxA" customClass="CityTableViewController" customModule="Cine" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="28" sectionFooterHeight="28" id="eEi-Y7-NjX">
+                <viewController id="F9K-fW-t5o" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7j7-DV-xov">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="CityTableViewCell" rowHeight="90" id="A3Z-U0-kSa" customClass="CityTableViewCell" customModule="Cine" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="320" height="90"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="A3Z-U0-kSa" id="4yj-s0-wdO">
-                                    <rect key="frame" x="0.0" y="0.0" width="287" height="89.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="CDC-jL-54G">
-                                            <rect key="frame" x="19" y="34" width="293" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="label" destination="CDC-jL-54G" id="IMm-Om-982"/>
-                                    <segue destination="BYZ-38-t0r" kind="push" id="dKQ-sP-Kw3"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="28z-ys-FxA" id="okg-c7-G0J"/>
-                            <outlet property="delegate" destination="28z-ys-FxA" id="AdV-U6-EGk"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Ciudad" id="usU-Fh-HS0"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Wjq-wi-FAb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Pelicula" id="hgt-n1-xgr"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="D9J-xk-Hh1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-154" y="1105"/>
+            <point key="canvasLocation" x="-305" y="1747"/>
         </scene>
     </scenes>
 </document>

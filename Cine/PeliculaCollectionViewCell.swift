@@ -12,6 +12,6 @@ class PeliculaCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var nombre:UILabel?
 
-    @IBOutlet weak var image:UIImage?
+    @IBOutlet weak var imagen:UIImageView?
     
 }
