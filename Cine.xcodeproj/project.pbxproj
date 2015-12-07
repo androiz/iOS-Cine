@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4137591C1C14B62E002DB46E /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4137591B1C14B62E002DB46E /* DetailViewController.swift */; };
 		416BF0791C010E410022C0CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416BF0781C010E410022C0CD /* AppDelegate.swift */; };
 		416BF07B1C010E410022C0CD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416BF07A1C010E410022C0CD /* ViewController.swift */; };
 		416BF07E1C010E410022C0CD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 416BF07C1C010E410022C0CD /* Main.storyboard */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4137591B1C14B62E002DB46E /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		416BF0751C010E410022C0CD /* Cine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		416BF0781C010E410022C0CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		416BF07A1C010E410022C0CD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 				416BF0781C010E410022C0CD /* AppDelegate.swift */,
 				416BF07A1C010E410022C0CD /* ViewController.swift */,
 				416BF07C1C010E410022C0CD /* Main.storyboard */,
+				4137591B1C14B62E002DB46E /* DetailViewController.swift */,
 				4199FDC01C02376F00E63762 /* PeliculaCollectionViewCell.swift */,
 				4199FDBE1C02357400E63762 /* PeliculasCollectionViewController.swift */,
 				4194C5B81C020D6300330A92 /* cities.plist */,
@@ -268,6 +271,7 @@
 			files = (
 				4199FDC11C02376F00E63762 /* PeliculaCollectionViewCell.swift in Sources */,
 				4199FDBF1C02357400E63762 /* PeliculasCollectionViewController.swift in Sources */,
+				4137591C1C14B62E002DB46E /* DetailViewController.swift in Sources */,
 				416BF07B1C010E410022C0CD /* ViewController.swift in Sources */,
 				416BF0791C010E410022C0CD /* AppDelegate.swift in Sources */,
 			);

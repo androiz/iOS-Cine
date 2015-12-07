@@ -12,8 +12,9 @@ private let reuseIdentifier = "Cell"
 
 class PeliculasCollectionViewController: UICollectionViewController {
     
+    
     var dataJSON: NSArray = []
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,7 +24,7 @@ class PeliculasCollectionViewController: UICollectionViewController {
         // Register cell classes
         self.collectionView!.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         
-        let urlString = "https://demo4791082.mockable.io/peliculas"
+        let urlString = "http://androiz.pythonanywhere.com/films/"
         let session = NSURLSession.sharedSession()
         let url = NSURL(string: urlString)
         
@@ -60,30 +61,6 @@ class PeliculasCollectionViewController: UICollectionViewController {
     */
 
     // MARK: UICollectionViewDataSource
-
-    func load_image(urlString:String, cell:PeliculaCollectionViewCell)
-    {
-        let imgURL: NSURL = NSURL(string: urlString)!
-        let request: NSURLRequest = NSURLRequest(URL: imgURL)
-        
-        let session = NSURLSession.sharedSession()
-        let task = session.dataTaskWithRequest(request){
-            (data, response, error) -> Void in
-            
-            if (error == nil && data != nil)
-            {
-                func display_image()
-                {
-                    cell.imagen?.image = UIImage(data: data!)
-                }
-                
-                dispatch_async(dispatch_get_main_queue(), display_image)
-            }
-            
-        }
-        
-        task.resume()
-    }
     
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         // #warning Incomplete implementation, return the number of sections
@@ -102,14 +79,8 @@ class PeliculasCollectionViewController: UICollectionViewController {
         
         if(dataJSON.count != 0){
             cell.nombre?.text = self.dataJSON[indexPath.row]["title"] as? String
-            let urlPath = self.dataJSON[indexPath.row]["url"] as! String
+            let urlPath = self.dataJSON[indexPath.row]["url_img"] as! String
             let url = NSURL(string: urlPath )
-            let data = NSData(contentsOfURL: url!)
-            let img = UIImage(data: data!)
-            cell.imagen?.image = img
-        }else{
-            cell.nombre?.text = "asdasd"
-            let url = NSURL(string: "http://img.desmotivaciones.es/201303/dfgjggjhkjl.jpg" )
             let data = NSData(contentsOfURL: url!)
             let img = UIImage(data: data!)
             cell.imagen?.image = img
@@ -118,7 +89,24 @@ class PeliculasCollectionViewController: UICollectionViewController {
         return cell
     }
     
+    func collectionView(collection: UICollectionView, selectedItemIndex: NSIndexPath)
+    {
+        //As sender send any data you need from the current Selected CollectionView
+        self.performSegueWithIdentifier("filmDetailView", sender: self)
+    }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let vc = segue.destinationViewController as? DetailViewController {
+            let cell = sender as! PeliculaCollectionViewCell
+            let indexPath = collectionView!.indexPathForCell(cell)
+            
+            let titulo = (self.dataJSON[indexPath!.row]["title"] as? String)!
+            vc.str_titulo = titulo as String
+            
+            let url_img = (self.dataJSON[indexPath!.row]["url_img"] as? String)!
+            vc.str_img = url_img as String
+        }
+    }
 
     // MARK: UICollectionViewDelegate
 
