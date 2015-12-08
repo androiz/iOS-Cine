@@ -37,7 +37,7 @@ class PeliculasCollectionViewController: UICollectionViewController {
                 dispatch_async(dispatch_get_main_queue()) {
                     self.collectionView!.reloadData()
                 }
-            } catch let caught as NSError {
+            } catch _ as NSError {
                 print("error")
             }
         }

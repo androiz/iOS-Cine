@@ -18,6 +18,7 @@
 		4194C5B91C020D6300330A92 /* cities.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4194C5B81C020D6300330A92 /* cities.plist */; };
 		4199FDBF1C02357400E63762 /* PeliculasCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4199FDBE1C02357400E63762 /* PeliculasCollectionViewController.swift */; };
 		4199FDC11C02376F00E63762 /* PeliculaCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4199FDC01C02376F00E63762 /* PeliculaCollectionViewCell.swift */; };
+		41E498381C1743CF00198416 /* SesionesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E498371C1743CF00198416 /* SesionesTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		4194C5B81C020D6300330A92 /* cities.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = cities.plist; sourceTree = "<group>"; };
 		4199FDBE1C02357400E63762 /* PeliculasCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeliculasCollectionViewController.swift; sourceTree = "<group>"; };
 		4199FDC01C02376F00E63762 /* PeliculaCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeliculaCollectionViewCell.swift; sourceTree = "<group>"; };
+		41E498371C1743CF00198416 /* SesionesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SesionesTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,7 @@
 				416BF0781C010E410022C0CD /* AppDelegate.swift */,
 				416BF07A1C010E410022C0CD /* ViewController.swift */,
 				416BF07C1C010E410022C0CD /* Main.storyboard */,
+				41E498371C1743CF00198416 /* SesionesTableViewController.swift */,
 				4137591B1C14B62E002DB46E /* DetailViewController.swift */,
 				4199FDC01C02376F00E63762 /* PeliculaCollectionViewCell.swift */,
 				4199FDBE1C02357400E63762 /* PeliculasCollectionViewController.swift */,
@@ -271,6 +274,7 @@
 			files = (
 				4199FDC11C02376F00E63762 /* PeliculaCollectionViewCell.swift in Sources */,
 				4199FDBF1C02357400E63762 /* PeliculasCollectionViewController.swift in Sources */,
+				41E498381C1743CF00198416 /* SesionesTableViewController.swift in Sources */,
 				4137591C1C14B62E002DB46E /* DetailViewController.swift in Sources */,
 				416BF07B1C010E410022C0CD /* ViewController.swift in Sources */,
 				416BF0791C010E410022C0CD /* AppDelegate.swift in Sources */,
