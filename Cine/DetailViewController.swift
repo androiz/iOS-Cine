@@ -12,9 +12,11 @@ class DetailViewController: UIViewController {
     
     @IBOutlet weak var titulo:UILabel!
     @IBOutlet weak var image:UIImageView!
+    @IBOutlet weak var sinopsis:UILabel!
     
     var str_titulo:String = ""
     var str_img:String = ""
+    var str_sinopsis:String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +27,7 @@ class DetailViewController: UIViewController {
         let url_img = NSURL(string: str_img )
         let data_img = NSData(contentsOfURL: url_img!)
         self.image.image = UIImage(data: data_img!)
+        self.sinopsis.text = self.str_sinopsis
     }
 
     override func didReceiveMemoryWarning() {

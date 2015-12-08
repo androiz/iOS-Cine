@@ -105,6 +105,9 @@ class PeliculasCollectionViewController: UICollectionViewController {
             
             let url_img = (self.dataJSON[indexPath!.row]["url_img"] as? String)!
             vc.str_img = url_img as String
+            
+            let sinopsis = (self.dataJSON[indexPath!.row]["sinopsis"] as? String)!
+            vc.str_sinopsis = sinopsis as String
         }
     }
 
