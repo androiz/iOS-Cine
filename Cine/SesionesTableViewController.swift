@@ -9,6 +9,11 @@
 import UIKit
 
 class SesionesTableViewController: UITableViewController {
+    
+    var film:NSDictionary = [:]
+    
+    var sessions = [:]
+    var days = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +23,10 @@ class SesionesTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        let str_sessions = self.film["sessions"] as? String
+        self.sessions = convertStringToDictionary(str_sessions!)!
+        self.days = (self.sessions.allKeys as! [String])
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,16 +43,36 @@ class SesionesTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 3
+        return self.sessions.count
     }
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("SessionCell", forIndexPath: indexPath)
-
-        // Configure the cell...
+        let reuseIdentifier = "SessionCell"
+        let cell = tableView.dequeueReusableCellWithIdentifier(reuseIdentifier, forIndexPath: indexPath) as! SesionesTableViewCell
+        
+        if(self.days != 0){
+            cell.day!.text = self.days[indexPath.row] as? String
+            
+            var newView = UIView(frame: CGRectMake(200, 10, 100, 50))
+            newView.backgroundColor=UIColor.greenColor()
+            cell.contentView.addSubview(newView)
+        }
 
         return cell
+    }
+    
+    func convertStringToDictionary(data: String) -> [NSObject: AnyObject]? {
+        if let data = data.dataUsingEncoding(NSUTF8StringEncoding) {
+            var json = [:]
+            do {
+                json = try NSJSONSerialization.JSONObjectWithData(data, options:[]) as! [NSObject: AnyObject]
+            } catch let myJSONError {
+                print(myJSONError)
+            }
+            return json as [NSObject : AnyObject]
+        }
+        return nil
     }
     
 
@@ -79,16 +108,6 @@ class SesionesTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         // Return false if you do not want the item to be re-orderable.
         return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
     }
     */
 

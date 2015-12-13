@@ -108,6 +108,9 @@ class PeliculasCollectionViewController: UICollectionViewController {
             
             let sinopsis = (self.dataJSON[indexPath!.row]["sinopsis"] as? String)!
             vc.str_sinopsis = sinopsis as String
+            
+            let film = (self.dataJSON[indexPath!.row] as! NSDictionary)
+            vc.film = film as Dictionary
         }
     }
 
