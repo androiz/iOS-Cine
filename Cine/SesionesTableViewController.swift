@@ -52,11 +52,26 @@ class SesionesTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier(reuseIdentifier, forIndexPath: indexPath) as! SesionesTableViewCell
         
         if(self.days != 0){
-            cell.day!.text = self.days[indexPath.row] as? String
+            let day = self.days[indexPath.row] as? String
             
-            var newView = UIView(frame: CGRectMake(200, 10, 100, 50))
-            newView.backgroundColor=UIColor.greenColor()
-            cell.contentView.addSubview(newView)
+            cell.day!.text = day
+            let hours = self.sessions[day!]!["hours"] as! NSArray
+            
+            var x = 10 as CGFloat
+            let y = 40 as CGFloat
+            let w = 53 as CGFloat
+            let h = 30 as CGFloat
+            
+            for (_, element) in hours.enumerate() {
+                let newView = UILabel(frame:CGRectMake(x, y, w, h))
+                newView.backgroundColor = UIColor(red: 133/255, green: 210/255, blue: 253/255, alpha: 1.0)
+                newView.text = element as? String
+                newView.textColor = UIColor.whiteColor()
+                newView.textAlignment = NSTextAlignment.Center
+                cell.contentView.addSubview(newView)
+                
+                x += w + 2
+            }
         }
 
         return cell
