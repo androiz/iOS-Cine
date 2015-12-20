@@ -14,6 +14,8 @@ class SesionesTableViewController: UITableViewController {
     
     var sessions = [:]
     var days = []
+    
+    var screenWidth : CGFloat = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +29,13 @@ class SesionesTableViewController: UITableViewController {
         let str_sessions = self.film["sessions"] as? String
         self.sessions = convertStringToDictionary(str_sessions!)!
         self.days = (self.sessions.allKeys as! [String])
+        
+        self.days = self.days.sort({ self.convertDay2Date($0 as! String).compare(self.convertDay2Date($1 as! String)) == NSComparisonResult.OrderedAscending })
+        
+        
+        //Get screen size
+        let screenSize = UIScreen.mainScreen().bounds
+        self.screenWidth = screenSize.width as CGFloat
     }
 
     override func didReceiveMemoryWarning() {
@@ -55,22 +64,41 @@ class SesionesTableViewController: UITableViewController {
             let day = self.days[indexPath.row] as? String
             
             cell.day!.text = day
-            let hours = self.sessions[day!]!["hours"] as! NSArray
+            let hours = self.sessions[day!]! as! NSArray
             
             var x = 10 as CGFloat
-            let y = 40 as CGFloat
+            var y = 40 as CGFloat
             let w = 53 as CGFloat
             let h = 30 as CGFloat
             
             for (_, element) in hours.enumerate() {
+                var hora = element.componentsSeparatedByString(" ")
+                
+                let disponibles = Int(hora[1])
+                
                 let newView = UILabel(frame:CGRectMake(x, y, w, h))
-                newView.backgroundColor = UIColor(red: 133/255, green: 210/255, blue: 253/255, alpha: 1.0)
-                newView.text = element as? String
+                if(disponibles < 10){
+                    //Red Warning
+                    newView.backgroundColor = UIColor(red: 217/255, green: 83/255, blue: 79/255, alpha: 1.0)
+                }else if(disponibles < 25){
+                    //Orange Warning
+                    newView.backgroundColor = UIColor(red: 240/255, green: 173/255, blue: 78/255, alpha: 1.0)
+                }else{
+                    //Blue Warning
+                    newView.backgroundColor = UIColor(red: 133/255, green: 210/255, blue: 253/255, alpha: 1.0)
+                }
+                
+                newView.text = hora[0]
                 newView.textColor = UIColor.whiteColor()
                 newView.textAlignment = NSTextAlignment.Center
                 cell.contentView.addSubview(newView)
                 
                 x += w + 2
+                if (x + w > self.screenWidth){
+                    self.tableView.rowHeight += 35
+                    x = 10
+                    y = 75
+                }
             }
         }
 
@@ -88,6 +116,18 @@ class SesionesTableViewController: UITableViewController {
             return json as [NSObject : AnyObject]
         }
         return nil
+    }
+    
+    func convertDay2Date(day: String) -> NSDate
+    {
+        var arr = day.componentsSeparatedByString(" ")
+        
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "dd-MM"
+        dateFormatter.timeZone = NSTimeZone(name: "UTC")
+        let date = dateFormatter.dateFromString(arr[1])
+        
+        return date!
     }
     
 

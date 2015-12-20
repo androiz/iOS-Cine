@@ -20,6 +20,8 @@ class DetailViewController: UIViewController {
     
     var film:NSDictionary = [:]
     
+    @IBOutlet var scrollView: UIScrollView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -30,6 +32,8 @@ class DetailViewController: UIViewController {
         let data_img = NSData(contentsOfURL: url_img!)
         self.image.image = UIImage(data: data_img!)
         self.sinopsis.text = self.str_sinopsis
+        
+        scrollView.contentSize.height = 630
     }
 
     override func didReceiveMemoryWarning() {
